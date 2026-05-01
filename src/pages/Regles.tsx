@@ -195,7 +195,7 @@ const Regles = () => {
           </section>
 
           {/* Termes comuns */}
-          <section>
+          <section id="termes" className="scroll-mt-4">
             <h2 className="font-display font-bold text-gold text-base mb-1">Termes comuns</h2>
             <div className="bg-card/50 rounded-lg p-3 border border-border">
               <dl className="text-xs space-y-1">
