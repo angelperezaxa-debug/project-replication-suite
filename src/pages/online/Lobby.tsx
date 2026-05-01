@@ -341,8 +341,8 @@ function TableCard({
     };
   });
 
-  const humansJoined = room.players.length;
-  const humanSeats = room.seatKinds.filter((k) => k === "human").length;
+  const humansJoined = safePlayers.length;
+  const humanSeats = safeSeatKinds.filter((k) => k === "human").length;
   const handleSeatClick = (seat: PlayerId) => {
     if (isNonPlayable) return;
     if (isPlaying && canResume && onResume) {
