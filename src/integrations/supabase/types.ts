@@ -283,6 +283,33 @@ export type Database = {
         }
         Relationships: []
       }
+      sala_chat: {
+        Row: {
+          created_at: string
+          device_id: string
+          id: number
+          name: string
+          sala_slug: string
+          text: string
+        }
+        Insert: {
+          created_at?: string
+          device_id: string
+          id?: number
+          name: string
+          sala_slug: string
+          text: string
+        }
+        Update: {
+          created_at?: string
+          device_id?: string
+          id?: number
+          name?: string
+          sala_slug?: string
+          text?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
