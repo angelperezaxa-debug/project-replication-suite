@@ -14,6 +14,48 @@ export type Database = {
   }
   public: {
     Tables: {
+      account_deletion_requests: {
+        Row: {
+          admin_notes: string | null
+          created_at: string
+          device_id: string | null
+          email: string
+          id: string
+          ip_masked: string | null
+          processed_at: string | null
+          reason: string | null
+          status: string
+          updated_at: string
+          user_agent: string | null
+        }
+        Insert: {
+          admin_notes?: string | null
+          created_at?: string
+          device_id?: string | null
+          email: string
+          id?: string
+          ip_masked?: string | null
+          processed_at?: string | null
+          reason?: string | null
+          status?: string
+          updated_at?: string
+          user_agent?: string | null
+        }
+        Update: {
+          admin_notes?: string | null
+          created_at?: string
+          device_id?: string | null
+          email?: string
+          id?: string
+          ip_masked?: string | null
+          processed_at?: string | null
+          reason?: string | null
+          status?: string
+          updated_at?: string
+          user_agent?: string | null
+        }
+        Relationships: []
+      }
       chat_flag_audit: {
         Row: {
           created_at: string
