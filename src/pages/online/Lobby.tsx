@@ -307,7 +307,7 @@ function TableCard({
   const playersBySeat = new Map(safePlayers.map((p) => [p.seat, p]));
   const seatIds = Array.from({ length: HUMAN_SEATS_PER_TABLE }, (_, i) => i as PlayerId);
   const seats: SeatInfo[] = seatIds.map((s) => {
-    const kind = room.seatKinds[s];
+    const kind = safeSeatKinds[s] ?? "human";
     const player = playersBySeat.get(s);
     if (isNonPlayable) {
       return {
