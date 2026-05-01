@@ -8,8 +8,8 @@ const Regles = () => {
   const t = useT();
 
   return (
-    <main className="min-h-screen flex flex-col items-center px-4 py-5">
-      <div className="w-full max-w-md flex flex-col gap-3">
+    <main className="min-h-screen flex flex-col items-center px-4 py-6 pb-12">
+      <div className="w-full max-w-lg flex flex-col gap-4">
         <div className="flex justify-end">
           <Button
             onClick={() => navigate("/")}
@@ -31,7 +31,7 @@ const Regles = () => {
           <p className="mt-1 text-xs text-muted-foreground">Truc Valencià — Regles completes</p>
         </header>
 
-        <div className="flex flex-col gap-5 text-sm text-foreground/90 leading-relaxed">
+        <div className="flex flex-col gap-6 text-sm text-foreground/90 leading-relaxed">
 
           {/* Introducció */}
           <section>
@@ -200,7 +200,7 @@ const Regles = () => {
 
         </div>
 
-        <div className="h-6" aria-hidden="true" />
+        <div className="h-10" aria-hidden="true" />
       </div>
     </main>
   );
