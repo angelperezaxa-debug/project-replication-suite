@@ -172,6 +172,14 @@ const ca: Dict = {
   "phrase.truca": "Truca!",
   "phrase.juega-callado": "Juga callat!",
   "phrase.vamonos": "Au! Anem-se'n!",
+
+  // Benvinguda
+  "welcome.greeting": "Benvingut al joc",
+  "welcome.language_label": "Idioma",
+  "welcome.name_label": "Com et dius?",
+  "welcome.name_placeholder": "El teu nom",
+  "welcome.name_hint": "Aquest nom s'utilitzarà a les partides online i al menú",
+  "welcome.accept": "Acceptar",
 };
 
 const es: Dict = {
@@ -340,6 +348,14 @@ const es: Dict = {
   "phrase.truca": "¡Truca!",
   "phrase.juega-callado": "¡Juega callado!",
   "phrase.vamonos": "¡Vámonos!",
+
+  // Bienvenida
+  "welcome.greeting": "Bienvenido al juego",
+  "welcome.language_label": "Idioma",
+  "welcome.name_label": "¿Cómo te llamas?",
+  "welcome.name_placeholder": "Tu nombre",
+  "welcome.name_hint": "Este nombre se usará en las partidas online y en el menú",
+  "welcome.accept": "Aceptar",
 };
 
 export const DICTS: Record<GameLanguage, Dict> = { ca, es };
