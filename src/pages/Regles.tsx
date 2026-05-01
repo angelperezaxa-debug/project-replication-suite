@@ -31,7 +31,7 @@ const Regles = () => {
           <p className="mt-1 text-xs text-muted-foreground">Truc Valencià — Regles completes</p>
         </header>
 
-        <div className="flex flex-col gap-5 text-sm text-foreground/90 leading-relaxed">
+        <div className="flex flex-col gap-6 text-sm text-foreground/90 leading-relaxed">
 
           {/* Introducció */}
           <section>
