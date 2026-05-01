@@ -302,7 +302,9 @@ function TableCard({
 
   const isPlaying = room.status === "playing";
   const isNonPlayable = isRoomNonPlayable(room);
-  const playersBySeat = new Map(room.players.map((p) => [p.seat, p]));
+  const safeSeatKinds = Array.isArray(room.seatKinds) ? room.seatKinds : [];
+  const safePlayers = Array.isArray(room.players) ? room.players : [];
+  const playersBySeat = new Map(safePlayers.map((p) => [p.seat, p]));
   const seatIds = Array.from({ length: HUMAN_SEATS_PER_TABLE }, (_, i) => i as PlayerId);
   const seats: SeatInfo[] = seatIds.map((s) => {
     const kind = room.seatKinds[s];
