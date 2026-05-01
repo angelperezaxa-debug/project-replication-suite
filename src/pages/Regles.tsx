@@ -75,7 +75,7 @@ const Regles = () => {
           </section>
 
           {/* Valor de les cartes */}
-          <section>
+          <section id="valor-cartes" className="scroll-mt-4">
             <h2 className="font-display font-bold text-gold text-base mb-1">Valor de les cartes (de major a menor)</h2>
             <div className="bg-card/50 rounded-lg p-3 border border-border">
               <ol className="list-decimal list-inside space-y-0.5 text-xs">
