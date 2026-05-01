@@ -7,6 +7,7 @@ import { Sparkles } from "lucide-react";
 import { FlagCircle } from "@/components/FlagCircle";
 import { loadSettings, saveSettings, type GameLanguage } from "@/lib/gameSettings";
 import { cn } from "@/lib/utils";
+import { useT } from "@/i18n/useT";
 
 /**
  * Pantalla de benvinguda que es mostra la primera vegada que s'obre l'app
@@ -17,6 +18,7 @@ function WelcomeForm({ onAccept }: { onAccept: (name: string) => void }) {
   const [value, setValue] = useState("");
   const clean = sanitizeName(value);
   const canSubmit = clean.length > 0;
+  const t = useT();
 
   const currentSettings = loadSettings();
   const [language, setLanguage] = useState<GameLanguage>(currentSettings.language);
@@ -53,13 +55,13 @@ function WelcomeForm({ onAccept }: { onAccept: (name: string) => void }) {
           </h1>
           <p className="mt-4 text-sm text-muted-foreground flex items-center justify-center gap-1">
             <Sparkles className="w-4 h-4 text-primary" />
-            Benvingut al joc
+            {t("welcome.greeting")}
           </p>
         </header>
 
         <section className="w-full flex flex-col gap-2">
           <label className="text-[10px] font-display tracking-widest uppercase text-primary/85 text-center">
-            Idioma / Idioma
+            {t("welcome.language_label")}
           </label>
           <div className="grid grid-cols-2 gap-2">
             {langOpts.map((o) => (
@@ -89,19 +91,19 @@ function WelcomeForm({ onAccept }: { onAccept: (name: string) => void }) {
             htmlFor="welcome-name"
             className="text-sm font-display font-bold text-foreground text-center"
           >
-            Com et dius?
+            {t("welcome.name_label")}
           </label>
           <Input
             id="welcome-name"
             autoFocus
             value={value}
             onChange={(e) => setValue(e.target.value)}
-            placeholder="El teu nom"
+            placeholder={t("welcome.name_placeholder")}
             maxLength={24}
             className="h-12 w-full text-center text-lg font-display border-2 border-primary bg-transparent focus-visible:border-primary focus-visible:ring-primary"
           />
           <p className="text-[11px] text-muted-foreground text-center">
-            Aquest nom s'utilitzarà a les partides online i al menú
+            {t("welcome.name_hint")}
           </p>
         </section>
 
@@ -111,7 +113,7 @@ function WelcomeForm({ onAccept }: { onAccept: (name: string) => void }) {
           disabled={!canSubmit}
           className="w-full h-12 bg-primary text-primary-foreground hover:bg-primary/90 font-display font-bold text-lg gold-glow disabled:opacity-50"
         >
-          Acceptar
+          {t("welcome.accept")}
         </Button>
       </form>
     </main>
