@@ -26,6 +26,7 @@ import Reportar from "./pages/Reportar";
 import EsborrarDades from "./pages/EsborrarDades";
 import EliminarCuenta from "./pages/EliminarCuenta";
 import Moderacio from "./pages/admin/Moderacio";
+import Regles from "./pages/Regles";
 
 const queryClient = new QueryClient();
 
@@ -57,6 +58,7 @@ const App = () => (
               <Route path="/reportar" element={<Reportar />} />
               <Route path="/esborrar-dades" element={<EsborrarDades />} />
               <Route path="/eliminar-cuenta" element={<EliminarCuenta />} />
+              <Route path="/regles" element={<Regles />} />
               <Route path="/admin/moderacio" element={<Moderacio />} />
               <Route path="*" element={<NotFound />} />
             </Routes>

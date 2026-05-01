@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "@/lib/router-shim";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Play, RotateCcw, Trash2, Users, LogIn, Settings as SettingsIcon, Wifi } from "lucide-react";
+import { Play, RotateCcw, Trash2, Users, LogIn, Settings as SettingsIcon, Wifi, BookOpen } from "lucide-react";
 import { hasSavedMatch, clearSavedMatch } from "@/hooks/useTrucMatch";
 import { loadSettings, resolveInitialMano } from "@/lib/gameSettings";
 import { useMyActiveRooms } from "@/online/useMyActiveRooms";
@@ -142,6 +142,13 @@ const Index = () => {
           <Link to="/ajustes">
             <SettingsIcon className="w-4 h-4 mr-2" />
             Configuració
+          </Link>
+        </Button>
+
+        <Button asChild size="lg" variant="outline" className="w-full h-12 border-2 border-primary/60 text-primary hover:bg-primary/10 font-display font-bold">
+          <Link to="/regles">
+            <BookOpen className="w-4 h-4 mr-2" />
+            Regles del Truc
           </Link>
         </Button>
 
