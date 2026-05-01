@@ -111,7 +111,7 @@ const Regles = () => {
           </section>
 
           {/* Envit */}
-          <section>
+          <section id="envit" className="scroll-mt-4">
             <h2 className="font-display font-bold text-gold text-base mb-1">L'Envit</h2>
             <p>
               Abans de jugar la primera carta, qualsevol jugador pot cantar <strong>«Envit!»</strong>.
