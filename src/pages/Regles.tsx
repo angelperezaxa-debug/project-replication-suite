@@ -31,6 +31,18 @@ const Regles = () => {
           <p className="mt-1 text-xs text-muted-foreground">Truc Valencià — Regles completes</p>
         </header>
 
+        {/* Índex */}
+        <nav className="bg-card/50 rounded-lg p-3 border border-border">
+          <p className="font-display font-bold text-gold text-sm mb-2">Índex</p>
+          <ul className="text-xs space-y-1.5">
+            <li><a href="#objectiu" className="text-foreground/80 hover:text-gold underline underline-offset-2">Objectiu del joc</a></li>
+            <li><a href="#valor-cartes" className="text-foreground/80 hover:text-gold underline underline-offset-2">Valor de les cartes</a></li>
+            <li><a href="#envit" className="text-foreground/80 hover:text-gold underline underline-offset-2">L'Envit</a></li>
+            <li><a href="#truc" className="text-foreground/80 hover:text-gold underline underline-offset-2">El Truc</a></li>
+            <li><a href="#termes" className="text-foreground/80 hover:text-gold underline underline-offset-2">Termes comuns</a></li>
+          </ul>
+        </nav>
+
         <div className="flex flex-col gap-6 text-sm text-foreground/90 leading-relaxed">
 
           {/* Introducció */}
@@ -44,7 +56,7 @@ const Regles = () => {
           </section>
 
           {/* Objectiu */}
-          <section>
+          <section id="objectiu" className="scroll-mt-4">
             <h2 className="font-display font-bold text-gold text-base mb-1">Objectiu del joc</h2>
             <p>
               Guanyar la partida acumulant <strong>pedres</strong> (punts). Una partida es juga a <strong>24 pedres</strong> (dues
@@ -63,7 +75,7 @@ const Regles = () => {
           </section>
 
           {/* Valor de les cartes */}
-          <section>
+          <section id="valor-cartes" className="scroll-mt-4">
             <h2 className="font-display font-bold text-gold text-base mb-1">Valor de les cartes (de major a menor)</h2>
             <div className="bg-card/50 rounded-lg p-3 border border-border">
               <ol className="list-decimal list-inside space-y-0.5 text-xs">
@@ -99,7 +111,7 @@ const Regles = () => {
           </section>
 
           {/* Envit */}
-          <section>
+          <section id="envit" className="scroll-mt-4">
             <h2 className="font-display font-bold text-gold text-base mb-1">L'Envit</h2>
             <p>
               Abans de jugar la primera carta, qualsevol jugador pot cantar <strong>«Envit!»</strong>.
@@ -131,7 +143,7 @@ const Regles = () => {
           </section>
 
           {/* Truc */}
-          <section>
+          <section id="truc" className="scroll-mt-4">
             <h2 className="font-display font-bold text-gold text-base mb-1">El Truc</h2>
             <p>
               En qualsevol moment de la ronda, un jugador pot cantar <strong>«Truc!»</strong>, que apuja el valor de la ronda:
@@ -183,7 +195,7 @@ const Regles = () => {
           </section>
 
           {/* Termes comuns */}
-          <section>
+          <section id="termes" className="scroll-mt-4">
             <h2 className="font-display font-bold text-gold text-base mb-1">Termes comuns</h2>
             <div className="bg-card/50 rounded-lg p-3 border border-border">
               <dl className="text-xs space-y-1">
