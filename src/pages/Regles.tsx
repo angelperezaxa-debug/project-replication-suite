@@ -143,7 +143,7 @@ const Regles = () => {
           </section>
 
           {/* Truc */}
-          <section>
+          <section id="truc" className="scroll-mt-4">
             <h2 className="font-display font-bold text-gold text-base mb-1">El Truc</h2>
             <p>
               En qualsevol moment de la ronda, un jugador pot cantar <strong>«Truc!»</strong>, que apuja el valor de la ronda:
