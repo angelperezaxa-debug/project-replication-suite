@@ -14,6 +14,60 @@ export type Database = {
   }
   public: {
     Tables: {
+      chat_flag_audit: {
+        Row: {
+          created_at: string
+          decided_at: string
+          decision: string
+          flag_created_at: string
+          flag_expires_at: string
+          flag_id: number
+          id: number
+          message_id: number | null
+          message_text: string | null
+          moderator_tag: string
+          reason: string | null
+          reporter_device_id: string
+          room_id: string
+          target_device_id: string
+          target_seat: number
+        }
+        Insert: {
+          created_at?: string
+          decided_at?: string
+          decision: string
+          flag_created_at: string
+          flag_expires_at: string
+          flag_id: number
+          id?: number
+          message_id?: number | null
+          message_text?: string | null
+          moderator_tag: string
+          reason?: string | null
+          reporter_device_id: string
+          room_id: string
+          target_device_id: string
+          target_seat: number
+        }
+        Update: {
+          created_at?: string
+          decided_at?: string
+          decision?: string
+          flag_created_at?: string
+          flag_expires_at?: string
+          flag_id?: number
+          id?: number
+          message_id?: number | null
+          message_text?: string | null
+          moderator_tag?: string
+          reason?: string | null
+          reporter_device_id?: string
+          room_id?: string
+          target_device_id?: string
+          target_seat?: number
+        }
+        Relationships: []
+      }
       player_profiles: {
         Row: {
           accept_threshold: number
@@ -149,6 +203,54 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      room_chat_flags: {
+        Row: {
+          created_at: string
+          decided_at: string | null
+          decided_by: string | null
+          expires_at: string
+          id: number
+          message_id: number | null
+          message_text: string | null
+          reason: string | null
+          reporter_device_id: string
+          room_id: string
+          status: string
+          target_device_id: string
+          target_seat: number
+        }
+        Insert: {
+          created_at?: string
+          decided_at?: string | null
+          decided_by?: string | null
+          expires_at: string
+          id?: number
+          message_id?: number | null
+          message_text?: string | null
+          reason?: string | null
+          reporter_device_id: string
+          room_id: string
+          status?: string
+          target_device_id: string
+          target_seat: number
+        }
+        Update: {
+          created_at?: string
+          decided_at?: string | null
+          decided_by?: string | null
+          expires_at?: string
+          id?: number
+          message_id?: number | null
+          message_text?: string | null
+          reason?: string | null
+          reporter_device_id?: string
+          room_id?: string
+          status?: string
+          target_device_id?: string
+          target_seat?: number
+        }
+        Relationships: []
       }
       room_players: {
         Row: {
