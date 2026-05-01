@@ -81,6 +81,7 @@ function PartidaClient() {
     dispatch,
     humanActions,
     shoutFlash,
+    shoutFlashes,
     lastShoutByPlayer,
     shoutLabelByPlayer,
     acceptedShoutByPlayer,
