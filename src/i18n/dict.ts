@@ -32,7 +32,7 @@ const ca: Dict = {
   "home.delete_saved": "Esborrar partida guardada",
   "home.start_new": "Començar nova partida",
   "home.start": "Començar partida",
-  "home.settings": "Ajustes",
+  "home.settings": "Configuració",
   "home.divider_friends": "o jugar amb amics",
   "home.see_tables": "Veure taules disponibles",
   "home.create_table": "Crear taula",
@@ -40,11 +40,11 @@ const ca: Dict = {
   "home.fixed_teams": "Equips fixos: tu i Company contra Bot Dre. i Bot Esq.",
 
   // Ajustes
-  "settings.title": "Ajustes",
-  "settings.subtitle": "Es guarden automàticament al teu dispositiu.",
+  "settings.title": "Configuració",
+  "settings.subtitle": "Es guarden automàticament al teu dispositiu",
   "settings.your_name": "El teu nom",
   "settings.player_name_label": "Nom de jugador",
-  "settings.player_name_hint": "Aquest nom s'utilitzarà a les partides online.",
+  "settings.player_name_hint": "Aquest nom s'utilitzarà a les partides online",
   "settings.cames_to_win": "Cames a guanyar",
   "settings.cames.1": "1 cama",
   "settings.cames.1.hint": "Curta",
@@ -52,17 +52,17 @@ const ca: Dict = {
   "settings.cames.2.hint": "Estàndard",
   "settings.cames.3": "3 cames",
   "settings.cames.3.hint": "Llarga",
-  "settings.piedras_per_cama": "Piedras per cama",
-  "settings.piedras.18": "18 piedras",
+  "settings.piedras_per_cama": "Pedres per cama",
+  "settings.piedras.18": "18 pedres",
   "settings.piedras.18.hint": "9 males · 9 bones",
-  "settings.piedras.24": "24 piedras",
+  "settings.piedras.24": "24 pedres",
   "settings.piedras.24.hint": "12 males · 12 bones",
   "settings.turn_timeout": "Temps màxim per torn",
   "settings.turn_timeout.hint":
-    "Si no jugues una carta dins d'aquest temps, es jugarà automàticament una carta legal a l'atzar.",
+    "Si no jugues una carta dins d'aquest temps, es jugarà automàticament una carta legal a l'atzar",
   "settings.difficulty": "Dificultat dels bots",
   "settings.difficulty.hint":
-    "Controla quant pregunten al company abans de tirar i com d'estrictes són acceptant envit i truc.",
+    "Controla quant pregunten al company abans de tirar i com d'estrictes són acceptant envit i truc",
   "settings.difficulty.conservative": "Conservador",
   "settings.difficulty.conservative.hint": "Pregunta molt, accepta poc",
   "settings.difficulty.balanced": "Equilibrat",
@@ -71,7 +71,7 @@ const ca: Dict = {
   "settings.difficulty.aggressive.hint": "Pregunta poc, accepta més",
   "settings.honesty": "Perfil dels bots",
   "settings.honesty.hint":
-    "Controla quant farolegen i menteixen els bots quan canten o responen.",
+    "Controla quant farolegen i menteixen els bots quan canten o responen",
   "settings.honesty.sincero": "Sincer",
   "settings.honesty.sincero.hint": "0% — sempre la veritat",
   "settings.honesty.pillo": "Pillo",
@@ -88,7 +88,7 @@ const ca: Dict = {
   "settings.admin": "Administrador",
   "settings.admin.placeholder": "Contrasenya d'administrador",
   "settings.admin.hint":
-    "Si tens la contrasenya correcta podràs tancar qualsevol taula des del lobby o dins la sala.",
+    "Si tens la contrasenya correcta podràs tancar qualsevol taula des del lobby o dins la sala",
 
   // Partida
   "match.cames": "CAMES",
