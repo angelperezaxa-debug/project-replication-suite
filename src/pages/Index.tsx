@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "@/lib/router-shim";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Play, RotateCcw, Trash2, Users, LogIn, Settings as SettingsIcon, Wifi } from "lucide-react";
+import { Play, RotateCcw, Trash2, Users, LogIn, Settings as SettingsIcon, Wifi, BookOpen } from "lucide-react";
 import { hasSavedMatch, clearSavedMatch } from "@/hooks/useTrucMatch";
 import { loadSettings, resolveInitialMano } from "@/lib/gameSettings";
 import { useMyActiveRooms } from "@/online/useMyActiveRooms";
