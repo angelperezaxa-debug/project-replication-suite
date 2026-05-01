@@ -4,6 +4,9 @@ import { usePlayerIdentity, sanitizeName } from "@/hooks/usePlayerIdentity";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Sparkles } from "lucide-react";
+import { FlagCircle } from "@/components/FlagCircle";
+import { loadSettings, saveSettings, type GameLanguage } from "@/lib/gameSettings";
+import { cn } from "@/lib/utils";
 
 /**
  * Pantalla de benvinguda que es mostra la primera vegada que s'obre l'app
@@ -14,6 +17,20 @@ function WelcomeForm({ onAccept }: { onAccept: (name: string) => void }) {
   const [value, setValue] = useState("");
   const clean = sanitizeName(value);
   const canSubmit = clean.length > 0;
+
+  const currentSettings = loadSettings();
+  const [language, setLanguage] = useState<GameLanguage>(currentSettings.language);
+
+  const handleLanguageChange = (lang: GameLanguage) => {
+    setLanguage(lang);
+    const s = loadSettings();
+    saveSettings({ ...s, language: lang });
+  };
+
+  const langOpts: { value: GameLanguage; label: string }[] = [
+    { value: "ca", label: "Valencià" },
+    { value: "es", label: "Castellano" },
+  ];
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -39,6 +56,33 @@ function WelcomeForm({ onAccept }: { onAccept: (name: string) => void }) {
             Benvingut al joc
           </p>
         </header>
+
+        <section className="w-full flex flex-col gap-2">
+          <label className="text-[10px] font-display tracking-widest uppercase text-primary/85 text-center">
+            Idioma / Idioma
+          </label>
+          <div className="grid grid-cols-2 gap-2">
+            {langOpts.map((o) => (
+              <button
+                key={o.value}
+                type="button"
+                onClick={() => handleLanguageChange(o.value)}
+                aria-pressed={language === o.value}
+                className={cn(
+                  "rounded-md border px-2 py-1.5 text-center transition-all flex flex-col items-center gap-0.5 leading-tight",
+                  language === o.value
+                    ? "border-primary bg-primary/15 text-primary"
+                    : "border-primary/25 bg-background/30 text-foreground/80 hover:border-primary/50 hover:bg-primary/10",
+                )}
+              >
+                <span className="inline-flex items-center gap-1.5 font-display font-bold text-xs">
+                  <FlagCircle lang={o.value} size={20} />
+                  {o.label}
+                </span>
+              </button>
+            ))}
+          </div>
+        </section>
 
         <section className="w-full flex flex-col gap-3">
           <label
