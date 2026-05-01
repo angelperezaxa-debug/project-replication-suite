@@ -328,6 +328,7 @@ function PartidaClient() {
       humanActions={humanActions}
       dispatch={dispatch}
       shoutFlash={shoutFlash}
+      shoutFlashes={shoutFlashes}
       lastShoutByPlayer={lastShoutByPlayer}
       shoutLabelByPlayer={shoutLabelByPlayer}
       acceptedShoutByPlayer={acceptedShoutByPlayer}
