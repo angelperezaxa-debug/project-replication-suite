@@ -145,6 +145,13 @@ const Index = () => {
           </Link>
         </Button>
 
+        <Button asChild size="lg" variant="outline" className="w-full h-12 border-2 border-primary/60 text-primary hover:bg-primary/10 font-display font-bold">
+          <Link to="/regles">
+            <BookOpen className="w-4 h-4 mr-2" />
+            Regles del Truc
+          </Link>
+        </Button>
+
         <nav className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs text-muted-foreground">
           <Link
             to="/privacitat"
