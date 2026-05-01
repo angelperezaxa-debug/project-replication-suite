@@ -564,7 +564,42 @@ function PartidaOnline() {
       </main>
     );
   }
-  if (!data || !state) return <Loading />;
+  if (!data) return <Loading />;
+
+  // Room transitioned away from "playing" — show contextual UI instead of
+  // infinite loading when matchState becomes null.
+  const roomStatus = data.room.status;
+  if (roomStatus === "finished" || roomStatus === "abandoned") {
+    return (
+      <main className="min-h-screen flex flex-col items-center justify-center gap-4 px-5">
+        <h2 className="font-display font-bold text-gold text-xl">
+          {roomStatus === "finished" ? "Partida acabada" : "Taula tancada"}
+        </h2>
+        <p className="text-sm text-muted-foreground text-center">
+          {roomStatus === "finished"
+            ? "Aquesta partida ja ha finalitzat."
+            : "Aquesta taula ha sigut tancada."}
+        </p>
+        <div className="flex gap-3">
+          <Button onClick={() => navigate("/online/lobby")} variant="outline">Tornar al lobby</Button>
+          <Button onClick={() => navigate("/")}>Inici</Button>
+        </div>
+      </main>
+    );
+  }
+  if (roomStatus === "lobby") {
+    return (
+      <main className="min-h-screen flex flex-col items-center justify-center gap-4 px-5">
+        <h2 className="font-display font-bold text-gold text-xl">La taula ha tornat al lobby</h2>
+        <p className="text-sm text-muted-foreground text-center">
+          La partida s'ha reiniciat. Torna a la sala per començar de nou.
+        </p>
+        <Button onClick={() => navigate(`/online/sala/${code}`)} variant="outline">Entrar a la sala</Button>
+      </main>
+    );
+  }
+
+  if (!state) return <Loading />;
 
   if (mySeat == null) {
     return (

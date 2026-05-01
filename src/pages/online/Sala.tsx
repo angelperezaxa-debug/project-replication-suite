@@ -75,7 +75,7 @@ function Sala() {
     if (data?.room.status === "playing" && data.mySeat != null) {
       navigate(`/online/partida/${code}`);
     }
-    if (data?.room.status === "abandoned") {
+    if (data?.room.status === "abandoned" || data?.room.status === "finished") {
       navigate("/online/lobby");
     }
   }, [data, code, navigate]);
