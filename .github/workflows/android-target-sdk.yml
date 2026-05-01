@@ -1,0 +1,88 @@
+name: Android targetSdk check
+
+# Genera el wrapper Android (TWA) con Bubblewrap a partir del manifest de la
+# PWA publicada y verifica que el targetSdkVersion del proyecto generado
+# cumpla el mínimo exigido por Google Play (>= 34).
+#
+# Configuración requerida (Settings → Secrets and variables → Actions):
+#   - Variable  PWA_MANIFEST_URL → URL pública del manifest.json de la PWA
+#                                  (p. ex. https://truc.example.com/manifest.json)
+#   - Variable  TWA_HOST         → host TWA (p. ex. truc.example.com)
+#                                  Se usa como --directory y package base.
+# Si las variables no están definidas, el job falla con un mensaje claro
+# en vez de generar un wrapper inválido.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check-target-sdk:
+    name: Generate TWA & verify targetSdk
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Setup Java 17 (required by Bubblewrap)
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Validate required CI variables
+        env:
+          PWA_MANIFEST_URL: ${{ vars.PWA_MANIFEST_URL }}
+          TWA_HOST: ${{ vars.TWA_HOST }}
+        run: |
+          if [ -z "$PWA_MANIFEST_URL" ] || [ -z "$TWA_HOST" ]; then
+            echo "::error::Missing required Actions variables PWA_MANIFEST_URL and/or TWA_HOST."
+            echo "Set them under Settings → Secrets and variables → Actions → Variables."
+            exit 2
+          fi
+          echo "Using manifest: $PWA_MANIFEST_URL"
+          echo "TWA host:       $TWA_HOST"
+
+      - name: Install Bubblewrap CLI
+        run: npm install --global @bubblewrap/cli@1.24.1
+
+      - name: Generate TWA wrapper from PWA manifest
+        env:
+          PWA_MANIFEST_URL: ${{ vars.PWA_MANIFEST_URL }}
+          TWA_HOST: ${{ vars.TWA_HOST }}
+        run: |
+          mkdir -p android-twa
+          cd android-twa
+          # --skipPwaValidation: el manifest puede no validar 100% en CI
+          # sin DNS/icons accesibles; solo necesitamos el proyecto Gradle
+          # generado para que el script lea targetSdkVersion.
+          bubblewrap init \
+            --manifest="$PWA_MANIFEST_URL" \
+            --directory="." \
+            --skipPwaValidation || {
+              echo "::error::Bubblewrap init failed. Comprueba que $PWA_MANIFEST_URL es accesible y devuelve un manifest válido."
+              exit 1
+            }
+
+      - name: Verify Android targetSdkVersion >= 34
+        run: node scripts/checkAndroidTargetSdk.mjs ./android-twa
+
+      - name: Upload generated wrapper (debug artifact)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-twa-wrapper
+          path: android-twa/
+          retention-days: 7
+          if-no-files-found: ignore
